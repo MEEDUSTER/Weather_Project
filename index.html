@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weather_project</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="weather-shell">
+        <div class="topbar">
+          <div class="title-block">
+            <div>
+              <h1>Weather forecast</h1>
+              <p id="subtitle">Weather data refreshed from OpenWeather</p>
+            </div>
+            <div class="unit-switch">
+              <button class="unit active" data-unit="metric">°C</button>
+              <button class="unit" data-unit="imperial">°F</button>
+            </div>
+          </div>
+
+          <div class="search-card">
+            <div class="search-top">
+              <span id="city-label">London, GB</span>
+            </div>
+            <form id="search-form">
+              <input id="city-input" type="search" placeholder="Search City" aria-label="Search city" />
+            </form>
+          </div>
+        </div>
+
+        <div id="day-tabs" class="day-tabs">
+          <!-- day buttons inserted by JS -->
+        </div>
+
+        <div class="content-grid">
+          <section class="card current-card">
+            <div class="current-hero">
+              <div class="weather-metric">
+                <div id="main-temp" class="main-temp">--</div>
+                <div id="condition-desc" class="condition">--</div>
+                <div id="condition-feels" class="condition">--</div>
+              </div>
+              <div class="weather-card">
+                <div id="weather-icon" class="icon">☁️</div>
+                <div id="current-time" class="time">--</div>
+              </div>
+            </div>
+            <div id="metrics-container" class="weather-summary">
+              <!-- metric chips inserted by JS -->
+            </div>
+          </section>
+
+          <section class="card hourly-card">
+            <div class="section-title">
+              <h2>Hourly forecast</h2>
+              <span>Next 9 hours</span>
+            </div>
+            <div class="chart-panel">
+              <div id="chart-line" class="chart-line"></div>
+            </div>
+            <div id="hourly-list" class="hourly-list">
+              <!-- hourly items inserted by JS -->
+            </div>
+          </section>
+        </div>
+
+        <section class="card map-card">
+          <iframe id="map-frame" class="map-frame" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.295%2C51.47%2C-0.08%2C51.54&layer=mapnik" allowfullscreen loading="lazy"></iframe>
+          <div class="precipitation-panel">
+            <h3>Minute forecast - precipitation</h3>
+            <div id="precip-row" class="precipitation-row">
+              <!-- precip items inserted by JS -->
+            </div>
+            <div class="precipitation-legend">
+              <span class="legend-chip" data-color="green">0-0.5 mm/h</span>
+              <span class="legend-chip" data-color="yellow">0.5-2.5 mm/h</span>
+              <span class="legend-chip" data-color="orange">2.5-7.5 mm/h</span>
+              <span class="legend-chip" data-color="red">7.5+ mm/h</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
